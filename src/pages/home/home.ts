@@ -5,27 +5,24 @@ import { Shake } from '@ionic-native/shake';
 import { Observable } from 'rxjs/Observable';
 
 
+declare var firebase: any;
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  shake$;
+  public messagesRef;
 
   constructor(
     public navCtrl: NavController, 
     public modalCtrl: ModalController,
     private platform: Platform,
-    public s: Shake
   ) {
+    this.messagesRef = firebase.database().ref('/messages');
 
-    if(this.platform.is('cordova')) {
-      // Create a shake stream with sentivity 60
-      // this.shake$ = this.s.startWatch(60).subscribe( () => {
-      //   console.log('Shake that big S phone');
-      // });
-    }
+    this.messagesRef.on('child_added', alert => this.alerts = [alert.val(), ...this.alerts])
 
   }
   
@@ -55,8 +52,11 @@ export class HomePage {
       // if we get a new alert obj from the cluster
       // we create a new array with the new alert at the begining
       // and the previous at the end so it always stays on top
-      if(obj) this.alerts = [obj, ...this.alerts]
+      if(obj) this.alerts = [obj, ...this.alerts];
+      this.messagesRef.push(obj);
     })
+
+
   }
 
   

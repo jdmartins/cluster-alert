@@ -14,6 +14,20 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBAoIr8AnBUGtZO_fB0HbbRA_AtTRXdU_4",
+      authDomain: "cluster-alert-a398b.firebaseapp.com",
+      databaseURL: "https://cluster-alert-a398b.firebaseio.com",
+      projectId: "cluster-alert-a398b",
+      storageBucket: "",
+      messagingSenderId: "426703051529"
+    };
+    firebase.initializeApp(config);
+  </script>
 
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
@@ -44,6 +58,7 @@
 
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+
 
 </body>
 </html>

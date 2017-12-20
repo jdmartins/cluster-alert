@@ -12,9 +12,10 @@ export class AlertModalComponent {
     private storage: Storage,
     private viewCtrl: ViewController
   ) {
-    this.storage.get('name').then((val) => {
+    this.storage.get('name').then(val => {
       this.name = val || '';
     });
+
   }
 
   public name;
