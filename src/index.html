@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic App</title>
@@ -15,6 +16,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDDtztswTiv0vfoOYrYUg12VXBIWMG8uew",
+      authDomain: "proj1-f63c5.firebaseapp.com",
+      databaseURL: "https://proj1-f63c5.firebaseio.com",
+      projectId: "proj1-f63c5",
+      storageBucket: "proj1-f63c5.appspot.com",
+      messagingSenderId: "488208301376"
+    };
+    firebase.initializeApp(config);
+  </script>
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 
@@ -30,6 +45,7 @@
   <link href="build/main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <!-- Ionic's root component and where the app will load -->
@@ -46,4 +62,5 @@
   <script src="build/main.js"></script>
 
 </body>
+
 </html>
