@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Cluster Alert
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card 
+    padding *ngFor="let alert of alerts">
+    <div class="status" [ngClass]="{'status--success': alert.status === 'success', 'status--warning': alert.status === 'warning'}">
+      <h4>{{alert.name}}</h4>
+      <p>{{alert.content}}</p>
+    </div>
+    
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button color="dark">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-9>
+        <!-- ionic color atribute -->
+        <button ion-button color="funky" (click)="openModal()">
+          Alert the cluster!
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-footer>

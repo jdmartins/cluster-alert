@@ -1,3 +1,27 @@
 page-home {
-
+    button {
+        width: 100%;
+    }
 }
+
+ion-card {
+    position: relative;
+}
+
+.status {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        top:0; left:0; bottom:0;
+    }
+    
+    &.status--success:before {
+        background-color: color($colors, secondary );
+    }
+
+    &.status--warning:before {
+        background-color: color($colors, danger );
+    }
+}
+
